@@ -34,6 +34,8 @@ acceptance-tests-run:
 .PHONY: acceptance-tests-down
 acceptance-tests-down:
 	docker-compose down || true
+	ls -als /tmp/geoserver-data
+	ls -als /tmp/geoserver-data/README.rst
 	docker run --rm --volume=/tmp/geoserver-data:/mnt/geoserver_datadir camptocamp/geoserver \
 		bash -c 'rm -rf /mnt/geoserver_datadir/*'
 	rmdir /tmp/geoserver-data
